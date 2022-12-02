@@ -1,1 +1,984 @@
-/* You can add global styles to this file, and also import other style files */
+// @import './colors';
+// @import './components';
+
+$main-color: #004fb6;
+$secondary-color: #ffd900;
+$white-color: #fff;
+$gray-color: #eee;
+$dark-gray-color: #5c596d;
+$navbar-search-border-color: #ffc05a;
+$footer-background-color: #2e2e2e;
+$footer-gray-color: #ccc;
+
+@mixin standardButton {
+	padding: 0.8em 0.5em;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-align: center;
+	background-color: $secondary-color;
+	border: none;
+	border-radius: 2px;
+	transition: background-color 0.3s;
+	text-decoration: none;
+}
+
+
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+input[type='search']::-webkit-search-decoration:hover,
+input[type='search']::-webkit-search-cancel-button:hover {
+	cursor: pointer;
+}
+
+// animation of nav links with pseudoelements
+.link {
+	position: relative;
+	margin: 0 1em;
+	padding: 0.3em;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: $main-color;
+	text-decoration: none;
+}
+
+.link:hover {
+	color: $main-color;
+}
+
+.link,
+.link::after,
+.link::before {
+	transition: 0.3s;
+}
+
+.animation-link::before,
+.animation-link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	width: 0;
+	border-bottom: 2px solid $main-color;
+}
+
+.animation-link::before {
+	right: 50%;
+}
+.animation-link::after {
+	left: 50%;
+}
+
+.animation-link:hover::before,
+.animation-link:hover::after {
+	width: 50%;
+}
+//end of animation
+
+nav {
+	background-color: $secondary-color;
+	z-index: 10;
+	.navbar-brand {
+		font-size: 2rem;
+		font-weight: bold;
+		color: $main-color;
+	}
+	.fa-bars {
+		padding: 1rem;
+		font-size: 3rem;
+		color: $main-color;
+	}
+	.navbar-nav {
+		display: inline-block;
+		.nav-search {
+			width: 90px;
+		}
+		.link {
+			.fa-magnifying-glass {
+				font-size: 1.4rem;
+			}
+			.fa-x {
+				font-size: 1.4rem;
+				color: $white-color;
+			}
+		}
+		//animation of search button in nav with pseudoelements
+		.nav-search {
+			text-decoration: none;
+			z-index: 0;
+		}
+		.nav-search::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 0;
+			background-color: $main-color;
+			z-index: -1;
+		}
+		.nav-search-color-change {
+			color: $white-color;
+			background-color: $main-color;
+		}
+		.nav-search:hover {
+			color: $white-color;
+		}
+		.nav-search:hover::after {
+			height: 100%;
+		}
+	}
+}
+
+.drop-down-menu-mobile {
+  position: absolute;
+	width: 100%;
+	height: 100vh;
+	font-weight: bold;
+	color: $main-color;
+	background-color: rgba($color: $main-color, $alpha: 0.8);
+	z-index: 1;
+	transform: translateY(-100%);
+	transition: transform 0.5s;
+	.white-background {
+		display: flex;
+		align-items: center;
+		height: 50vh;
+		background-color: $white-color;
+		.close-button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 1em;
+			padding: 1em;
+			font-size: 1.2rem;
+			font-weight: bold;
+			color: $main-color;
+			background: none;
+			border: none;
+			i {
+				margin-left: 0.2em;
+			}
+		}
+		.form-floating {
+			margin-top: 5em;
+			.form-control {
+				width: 90vw;
+				margin-left: 2em;
+				margin-bottom: 1.2em;
+			}
+			.fa-magnifying-glass {
+				margin-left: 3em;
+				font-size: 1.4rem;
+			}
+			.search-button {
+				display: none;
+				margin-left: 3em;
+				padding: 0.2em 0.5em;
+				font-size: 1.5rem;
+				font-weight: bold;
+				color: $dark-gray-color;
+				background-color: $gray-color;
+				border: none;
+				border-radius: 2px;
+				transition: background-color 0.3s;
+				z-index: 0;
+			}
+			.search-button:hover {
+				background-color: rgb(211, 211, 211);
+			}
+			input {
+				font-size: 1.2em;
+				font-weight: bold;
+				color: $main-color;
+			}
+      .navbar-nav {
+				.link {
+					border-bottom: 2px solid $gray-color;
+				}
+			}
+
+		}
+	}
+}
+
+.drop-down-menu-mobile-active {
+	transform: translateY(0);
+}
+
+//hero img
+header {
+	.hero-img {
+		position: relative;
+		display: flex;
+		height: 70vh;
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		background-image: url('./assets/img/hero-img-small.jpg');
+		z-index: 0;
+		.hero-shadow {
+			position: absolute;
+			width: 100%;
+			height: 70vh;
+			background-color: rgba(0, 0, 0, 0.3);
+			z-index: -1;
+		}
+		.hero-content {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-end;
+			padding: 0 2em;
+			height: 100%;
+			font-weight: bold;
+			color: $white-color;
+			z-index: 1;
+			h1 {
+				font-size: 3.5rem;
+				font-weight: bold;
+			}
+			p {
+				font-size: 2.7rem;
+			}
+			.hero-btn {
+				@include standardButton;
+				width: 100%;
+			}
+			.hero-btn-first {
+				color: $main-color;
+			}
+			.hero-btn-second {
+				margin: 1em 0;
+				color: $main-color;
+				background-color: $gray-color;
+			}
+			.hero-btn:hover {
+				color: $white-color;
+				background-color: $main-color;
+			}
+		}
+	}
+}
+
+// products section
+.products {
+	.card-group {
+		.card {
+			margin: 2em 1em;
+			.card-body {
+				display: flex;
+				flex-direction: column;
+				height: 270px;
+				.card-title {
+					font-size: 2rem;
+					font-weight: bold;
+				}
+				.card-text {
+					font-size: 1.5rem;
+					height: 100%;
+				}
+				.card-btn {
+					@include standardButton;
+				}
+				.card-btn-first {
+					color: $main-color;
+				}
+				.card-btn-second {
+					margin: 1em 0;
+					color: $main-color;
+					background-color: $gray-color;
+				}
+				.card-btn:hover {
+					color: $white-color;
+					background-color: $main-color;
+				}
+			}
+			.card-img-top {
+				object-fit: cover;
+				height: 50vw;
+			}
+		}
+	}
+
+	.rest-of-products-list {
+		.product-box {
+			padding: 0 1em;
+			height: 0;
+			transition: 0.2s;
+			opacity: 0;
+			visibility: hidden;
+			.product-heading {
+				color: $main-color;
+				font-size: 2.2rem;
+				font-weight: bold;
+			}
+			.list {
+				.list-item {
+					padding: 0.5em 0;
+					font-size: 1.5rem;
+					cursor: pointer;
+					transition: 0.3s;
+				}
+				.list-item:hover {
+					color: $main-color;
+					font-weight: bold;
+				}
+			}
+		}
+		.show-hide-products {
+			width: 30px;
+			height: 30px;
+			background-color: $white-color;
+			border: 0.1em solid $dark-gray-color;
+			border-radius: 50%;
+			transition: background-color 0.3s;
+			.fa-chevron-down {
+				font-size: 2rem;
+				color: $white-color;
+				color: $dark-gray-color;
+				transition: transform 0.3s;
+			}
+		}
+		p {
+			display: inline-block;
+			font-size: 1.4rem;
+			font-weight: bold;
+			margin-left: 1em;
+		}
+		.button-box {
+			margin-left: 3em;
+		}
+		.button-box:hover {
+			cursor: pointer;
+			p {
+				color: $main-color;
+			}
+			.show-hide-products {
+				background-color: $main-color;
+			}
+			.fa-chevron-down {
+				color: $white-color;
+			}
+		}
+		.drop-rest-of-products {
+			height: auto;
+			visibility: visible;
+			opacity: 1;
+		}
+		.change {
+			button {
+				background-color: $main-color;
+				.fa-chevron-down {
+					color: $white-color;
+				}
+			}
+			p {
+				color: $main-color;
+			}
+		}
+	}
+	.product-box-margin-top {
+		margin-top: 2.5em;
+	}
+	.end-line-rest-of-products {
+		transition: 0.8s;
+	}
+
+	.end-line-rest-of-products-active {
+		transform: translateY(20px);
+	}
+}
+
+//service section
+.service {
+	background-color: $main-color;
+	h2 {
+		text-align: center;
+		font-weight: bold;
+		font-size: 3rem;
+		color: $white-color;
+	}
+	.service-card-group {
+		.service-card {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: 2em 1em;
+			height: 250px;
+			background-color: $gray-color;
+			.fa-solid {
+				margin-bottom: 0.3em;
+				font-size: 6rem;
+				color: $main-color;
+			}
+			.service-card-body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				.service-card-title {
+					font-size: 1.7rem;
+					font-weight: bold;
+				}
+				.link {
+					margin-top: 2.5em;
+				}
+			}
+		}
+	}
+}
+
+//footer
+.footer {
+	background-color: $footer-background-color;
+	.footer-boxes {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-left: 1em;
+		.footer-box {
+			margin-top: 0.8em;
+			font-size: 1.4rem;
+			.footer-box-title {
+				font-size: 1.8rem;
+				font-weight: bold;
+				color: $white-color;
+			}
+			.footer-box-list {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				padding: 0;
+				list-style-type: none;
+				.link {
+					margin: 0;
+					padding: 1em 0;
+					font-weight: normal;
+					color: $footer-gray-color;
+					transition: color 0.3s;
+					cursor: pointer;
+				}
+				.link:hover {
+					color: $white-color;
+				}
+				.animation-link::before,
+				.animation-link::after {
+					border-bottom: 2px solid $white-color;
+				}
+			}
+		}
+		.social-media {
+			margin-top: 1em;
+			font-size: 2.5rem;
+			.fab {
+				color: $white-color;
+				transition: color 0.3s;
+			}
+			.fa-twitter {
+				padding: 0 0.8em;
+			}
+			.fab:hover {
+				color: $dark-gray-color;
+			}
+		}
+	}
+	hr {
+		color: $footer-gray-color;
+	}
+	.footer-box-second-list {
+		display: flex;
+		flex-direction: column;
+		.list {
+			display: flex;
+			list-style-type: none;
+			.link {
+				font-weight: normal;
+				color: $footer-gray-color;
+				transition: color 0.3s;
+				cursor: pointer;
+			}
+			.link:hover {
+				color: $white-color;
+			}
+			.animation-link::before,
+			.animation-link::after {
+				border-bottom: 2px solid $white-color;
+			}
+		}
+		.footer-copy-right {
+			margin-top: 0.5em;
+			font-size: 1.5rem;
+			color: $footer-gray-color;
+			list-style-type: none;
+		}
+	}
+}
+
+//car insurnace more info subpage
+.insurance-car-more-info {
+	.insurance-car-more-info-content {
+		h1 {
+			margin-top: 1em;
+			font-size: 3.5rem;
+			text-align: center;
+		}
+		p {
+			margin: 2em 1em;
+			font-size: 1.6rem;
+			text-align: center;
+		}
+		.products {
+			.card-group {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				.card {
+					.card-body {
+						position: relative;
+						height: 500px;
+						ul {
+							li {
+								font-size: 1.5rem;
+								margin: 1em 1em;
+							}
+						}
+						.card-btn {
+							position: absolute;
+							bottom: 1em;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//insurances subpage
+.insurances-header {
+	.insurances-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		h1 {
+			margin-top: 1em;
+			font-size: 3.5rem;
+			text-align: center;
+		}
+		p {
+			margin: 1em 1em;
+			font-size: 1.6rem;
+			text-align: center;
+		}
+		.service {
+			background-color: $white-color;
+			.service-card {
+				background-color: $white-color;
+			}
+		}
+
+		.end-button {
+			margin: 2em 0;
+			width: 95%;
+			@include standardButton;
+			color: $main-color;
+		}
+		.end-button:hover {
+			color: $white-color;
+			background-color: $main-color;
+		}
+		.products {
+			.card-group {
+				.card {
+					text-align: center;
+					.fa-solid {
+						margin-top: 1em;
+						font-size: 4rem;
+						color: $main-color;
+					}
+					.card-body {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						height: 300px;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}
+
+//car insurance information subpage
+.car-insurance {
+	.hero-img {
+		background-image: url('./assets/img/car-hero-img-small.jpg');
+		.hero-content {
+			.hero-btn {
+				margin: 1em 0;
+			}
+		}
+	}
+}
+
+//tourist insurance information subpage
+.tourist-insurance {
+	.hero-img {
+		background-image: url('./assets/img/tourist-hero-img-small.jpg');
+		.hero-content {
+			.hero-btn {
+				margin: 1em 0;
+			}
+		}
+	}
+}
+
+//life insurance information subpage
+.life-insurance {
+	.hero-img {
+		background-image: url('./assets/img/life-hero-img-small.jpg');
+		.hero-content {
+			.hero-btn {
+				margin: 1em 0;
+			}
+		}
+	}
+}
+
+//investments information subpage
+.investments {
+	.hero-img {
+		background-image: url('./assets/img/investments-hero-img-small.jpg');
+		.hero-content {
+			position: absolute;
+			top: 50%;
+			display: inline-block;
+		}
+	}
+}
+
+//investments information subpage
+.retiring {
+	.hero-img {
+		background-image: url('./assets/img/retiring-hero-img-small.jpg');
+		.hero-content {
+			position: absolute;
+			top: 50%;
+			display: inline-block;
+		}
+	}
+}
+
+//insurance calculator subpage
+.insurance-calculator-form {
+	.insurance-calculator-form-content {
+		max-width: 600px;
+		.form-group {
+			min-width: 250px;
+			margin: 2em 1em;
+			label {
+				margin: 0.5em 0;
+				font-size: 1.8rem;
+			}
+			input,
+			.input-group-text {
+				font-size: 2rem;
+			}
+			h1 {
+				font-size: 3.5rem;
+			}
+			button {
+				width: 100%;
+				@include standardButton;
+				color: $main-color;
+			}
+			button:hover {
+				color: $white-color;
+				background-color: $main-color;
+			}
+		}
+	}
+	.date-of-birth,
+	.phone {
+		width: 250px;
+	}
+	.end-information {
+		margin: 6em 1em;
+	}
+}
+
+// media queries
+@media (min-width: 376px) {
+	.drop-down-menu-mobile {
+		.white-background {
+			.close-button {
+				font-size: 1.5rem;
+			}
+			.form-floating {
+				margin-top: 0;
+			}
+		}
+	}
+	header {
+		.hero-img {
+			.hero-content {
+				h1 {
+					font-size: 4.5rem;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.drop-down-menu-mobile {
+		.white-background {
+			height: 70vh;
+			.navbar-nav {
+				flex-direction: row;
+				justify-content: center;
+			}
+		}
+	}
+	.products {
+		.card-group {
+			.card-third {
+				width: 50%;
+				margin: 0 auto;
+			}
+			.card {
+				.card-img-top {
+					height: 30vw;
+				}
+			}
+		}
+	}
+	.insurance-calculator-form {
+		height: 100vh;
+	}
+	.insurances-header {
+		.insurances-content {
+			.end-button {
+				width: 200px;
+			}
+		}
+	}
+}
+
+@media (max-width: 668px) {
+	.drop-down-menu-mobile {
+		.white-background {
+			.form-floating {
+				.navbar-nav {
+					.link {
+						font-size: 1.7rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) and (min-height: 576px) {
+	.drop-down-menu-mobile {
+		.white-background {
+			display: flex;
+			flex-direction: row;
+			height: 30vh;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	header {
+		.hero-img {
+			.hero-content {
+				position: absolute;
+				top: 50%;
+				display: inline-block;
+				h1 {
+					font-size: 5.5rem;
+				}
+				p {
+					font-size: 2.7rem;
+				}
+
+				.hero-btn {
+					display: inline-block;
+					margin: 0 1em;
+					width: 30%;
+				}
+			}
+		}
+	}
+	.footer {
+		.footer-boxes {
+			.social-media {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	nav {
+		.navbar-nav {
+			.nav-search {
+				margin-left: 5em;
+				border-left: 1px solid $navbar-search-border-color;
+				border-right: 1px solid $navbar-search-border-color;
+			}
+			display: contents;
+			margin-left: 5em;
+		}
+	}
+	.drop-down-menu-mobile {
+		.white-background {
+			justify-content: center;
+			height: 10vh;
+			.close-button {
+				display: none;
+			}
+			.form-floating {
+				.form-control {
+					width: 30vw;
+				}
+				.search-button {
+					position: absolute;
+					display: block;
+					left: 95%;
+					bottom: 35%;
+				}
+				.navbar-nav {
+					display: none;
+				}
+			}
+		}
+	}
+	header {
+		.hero-img {
+			background-image: url('./assets/img/hero-img-big.jpg');
+			.hero-content {
+				.hero-btn {
+					margin: 1.5em 1em;
+				}
+			}
+		}
+	}
+	.products {
+		.card-group {
+			.card-third {
+				flex: 0 0 auto;
+				width: 33.33333333%;
+			}
+			.card {
+				.card-img-top {
+					height: 13vw;
+				}
+			}
+		}
+		.rest-of-products-list {
+			.product-box {
+				.list {
+					height: 150px;
+				}
+				hr {
+					display: none;
+				}
+			}
+			.product-box-first,
+			.product-box-second {
+				border-right: 2px solid $gray-color;
+			}
+		}
+	}
+	.footer {
+		.footer-boxes {
+			flex-direction: row;
+
+			.footer-box {
+				margin: 0 0.8em;
+			}
+
+			.social-media {
+				margin-left: 4em;
+			}
+		}
+		.footer-box-second-list {
+			position: relative;
+			.footer-copy-right {
+				position: absolute;
+				right: 0;
+			}
+		}
+	}
+	.insurances-more-info {
+		.insurances-more-info-content {
+			.products {
+				.card-group {
+					.card {
+						.card-body {
+							height: 400px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.car-insurance {
+	.hero-img {
+		background-image: url('./assets/img/car-hero-img-big.jpg');
+	}
+}
+
+.tourist-insurance {
+	.hero-img {
+		background-image: url('./assets/img/tourist-hero-img-big.jpg');
+	}
+}
+
+.life-insurance {
+	.hero-img {
+		background-image: url('./assets/img/life-hero-img-big.jpg');
+	}
+}
+
+.investments {
+	.hero-img {
+		background-image: url('./assets/img/investments-hero-img-big.jpg');
+	}
+}
+
+.retiring {
+	.hero-img {
+		background-image: url('./assets/img/retiring-hero-img-big.jpg');
+	}
+}
+
+@media (min-width: 1200px) {
+	.footer {
+		.footer-boxes {
+			.footer-box {
+				width: 190px;
+			}
+		}
+	}
+}
