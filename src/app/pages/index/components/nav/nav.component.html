@@ -1,0 +1,35 @@
+<nav id="navbar" class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="./index.html"> <i class="fab fa-canadian-maple-leaf"></i><span
+        class="navbar-brand-company-name">Leaf-Insurance</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" [ngClass]="flag ?'' :'drop-down-menu-mobile-active'" (click)="flag = !flag">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="link animation-link" href="./insurances.html"> Ubzpieczenia</a>
+        <a class="link animation-link" href="./investments.html">Inwestycje</a>
+        <a class="link animation-link" href="./retiring.html">Emerytura</a>
+        <a class="link animation-link" href="./contact.html">Kontakt</a>
+        <a class="link nav-search" (click)="handleIconChange()" #navSearch href="#search" [ngClass]="flag ?'' :'nav-search-color-change'" (click)="flag = !flag">Szukaj <i class="fa-solid fa-magnifying-glass"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="drop-down-menu-mobile" #dropDownMenuMobile [ngClass]="flag ?'' :'drop-down-menu-mobile-active'">
+  <div class="white-background">
+    <button class="close-button" (click)="flag = !flag" type="button">Zamknij menu <i class="fa-solid fa-x"></i></button>
+    <div class="form-floating">
+      <input id="floatingInput" type="search" class="form-control" placeholder="Wyszukaj">
+      <label for="floatingInput"><i class="fa-solid fa-magnifying-glass"></i></label>
+      <button type="submit" class="search-button">Szukaj</button>
+      <div class="navbar-nav">
+        <a class="link animation-link" href="./insurances.html"> Ubzpieczenia</a>
+        <a class="link animation-link" href="./investments.html">Inwestycje</a>
+        <a class="link animation-link" href="./retiring.html">Emerytura</a>
+        <a class="link animation-link" href="./contact.html">Kontakt</a>
+      </div>
+    </div>
+  </div>
+</div>

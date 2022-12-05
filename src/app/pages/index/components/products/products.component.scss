@@ -1,0 +1,176 @@
+@import "variables";
+@import "mixins";
+
+.products {
+	.card-group {
+		.card {
+			margin: 2em 1em;
+			.card-body {
+				display: flex;
+				flex-direction: column;
+				height: 270px;
+				.card-title {
+					font-size: 2rem;
+					font-weight: bold;
+				}
+				.card-text {
+					font-size: 1.5rem;
+					height: 100%;
+				}
+				.card-btn {
+					@include standardButton;
+				}
+				.card-btn-first {
+					color: $main-color;
+				}
+				.card-btn-second {
+					margin: 1em 0;
+					color: $main-color;
+					background-color: $gray-color;
+				}
+				.card-btn:hover {
+					color: $white-color;
+					background-color: $main-color;
+				}
+			}
+			.card-img-top {
+				object-fit: cover;
+				height: 50vw;
+			}
+		}
+	}
+
+	.rest-of-products-list {
+		.product-box {
+			padding: 0 1em;
+			height: 0;
+			transition: 0.2s;
+			opacity: 0;
+			visibility: hidden;
+			.product-heading {
+				color: $main-color;
+				font-size: 2.2rem;
+				font-weight: bold;
+			}
+			.list {
+				.list-item {
+					padding: 0.5em 0;
+					font-size: 1.5rem;
+					cursor: pointer;
+					transition: 0.3s;
+				}
+				.list-item:hover {
+					color: $main-color;
+					font-weight: bold;
+				}
+			}
+		}
+		.show-hide-products {
+			width: 30px;
+			height: 30px;
+			background-color: $white-color;
+			border: 0.1em solid $dark-gray-color;
+			border-radius: 50%;
+			transition: background-color 0.3s;
+			.fa-chevron-down {
+				font-size: 2rem;
+				color: $white-color;
+				color: $dark-gray-color;
+				transition: transform 0.3s;
+			}
+		}
+		p {
+			display: inline-block;
+			font-size: 1.4rem;
+			font-weight: bold;
+			margin-left: 1em;
+		}
+		.button-box {
+			margin-left: 3em;
+		}
+		.button-box:hover {
+			cursor: pointer;
+			p {
+				color: $main-color;
+			}
+			.show-hide-products {
+				background-color: $main-color;
+			}
+			.fa-chevron-down {
+				color: $white-color;
+			}
+		}
+		.drop-rest-of-products {
+			height: auto;
+			visibility: visible;
+			opacity: 1;
+		}
+		.change {
+			button {
+				background-color: $main-color;
+				.fa-chevron-down {
+					color: $white-color;
+				}
+			}
+			p {
+				color: $main-color;
+			}
+		}
+	}
+	.product-box-margin-top {
+		margin-top: 2.5em;
+	}
+	.end-line-rest-of-products {
+		transition: 0.8s;
+	}
+
+	.end-line-rest-of-products-active {
+		transform: translateY(20px);
+	}
+}
+
+@media (min-width: 576px) {
+	.products {
+		.card-group {
+			.card-third {
+				width: 50%;
+				margin: 0 auto;
+			}
+			.card {
+				.card-img-top {
+					height: 30vw;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+  .products {
+		.card-group {
+			.card-third {
+				flex: 0 0 auto;
+				width: 33.33333333%;
+			}
+			.card {
+				.card-img-top {
+					height: 13vw;
+				}
+			}
+		}
+		.rest-of-products-list {
+			.product-box {
+				.list {
+					height: 150px;
+				}
+				hr {
+					display: none;
+				}
+			}
+			.product-box-first,
+			.product-box-second {
+				border-right: 2px solid $gray-color;
+			}
+		}
+	}
+}

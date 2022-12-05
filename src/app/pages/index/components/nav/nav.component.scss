@@ -1,0 +1,219 @@
+@import "variables";
+
+nav {
+	background-color: $secondary-color;
+	z-index: 10;
+	.navbar-brand {
+		font-size: 2rem;
+		font-weight: bold;
+		color: $main-color;
+	}
+	.fa-bars {
+		padding: 1rem;
+		font-size: 3rem;
+		color: $main-color;
+	}
+	.navbar-nav {
+		display: inline-block;
+		.nav-search {
+			width: 90px;
+		}
+		.link {
+			.fa-magnifying-glass {
+				font-size: 1.4rem;
+			}
+			.fa-x {
+				font-size: 1.4rem;
+				color: $white-color;
+			}
+		}
+		//animation of search button in nav with pseudoelements
+		.nav-search {
+			text-decoration: none;
+			z-index: 0;
+		}
+		.nav-search::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 0;
+			background-color: $main-color;
+			z-index: -1;
+		}
+		.nav-search-color-change {
+			color: $white-color;
+			background-color: $main-color;
+		}
+		.nav-search:hover {
+			color: $white-color;
+		}
+		.nav-search:hover::after {
+			height: 100%;
+		}
+	}
+}
+
+.drop-down-menu-mobile {
+  position: absolute;
+	width: 100%;
+	height: 100vh;
+	font-weight: bold;
+	color: $main-color;
+	background-color: rgba($color: $main-color, $alpha: 0.8);
+	z-index: 1;
+	transform: translateY(-100%);
+	transition: transform 0.5s;
+	.white-background {
+		display: flex;
+		align-items: center;
+		height: 50vh;
+		background-color: $white-color;
+		.close-button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 1em;
+			padding: 1em;
+			font-size: 1.2rem;
+			font-weight: bold;
+			color: $main-color;
+			background: none;
+			border: none;
+			i {
+				margin-left: 0.2em;
+			}
+		}
+		.form-floating {
+			margin-top: 5em;
+			.form-control {
+				width: 90vw;
+				margin-left: 2em;
+				margin-bottom: 1.2em;
+			}
+			.fa-magnifying-glass {
+				margin-left: 3em;
+				font-size: 1.4rem;
+			}
+			.search-button {
+				display: none;
+				margin-left: 3em;
+				padding: 0.2em 0.5em;
+				font-size: 1.5rem;
+				font-weight: bold;
+				color: $dark-gray-color;
+				background-color: $gray-color;
+				border: none;
+				border-radius: 2px;
+				transition: background-color 0.3s;
+				z-index: 0;
+			}
+			.search-button:hover {
+				background-color: rgb(211, 211, 211);
+			}
+			input {
+				font-size: 1.2em;
+				font-weight: bold;
+				color: $main-color;
+			}
+      .navbar-nav {
+				.link {
+					border-bottom: 2px solid $gray-color;
+				}
+			}
+
+		}
+	}
+}
+
+.drop-down-menu-mobile-active {
+	transform: translateY(0);
+}
+
+@media (min-width: 376px) {
+	.drop-down-menu-mobile {
+		.white-background {
+			.close-button {
+				font-size: 1.5rem;
+			}
+			.form-floating {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.drop-down-menu-mobile {
+		.white-background {
+			height: 70vh;
+			.navbar-nav {
+				flex-direction: row;
+				justify-content: center;
+			}
+		}
+	}
+}
+
+@media (max-width: 668px) {
+	.drop-down-menu-mobile {
+		.white-background {
+			.form-floating {
+				.navbar-nav {
+					.link {
+						font-size: 1.7rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) and (min-height: 576px) {
+	.drop-down-menu-mobile {
+		.white-background {
+			display: flex;
+			flex-direction: row;
+			height: 30vh;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	nav {
+		.navbar-nav {
+			.nav-search {
+				margin-left: 5em;
+				border-left: 1px solid $navbar-search-border-color;
+				border-right: 1px solid $navbar-search-border-color;
+			}
+			display: contents;
+			margin-left: 5em;
+		}
+	}
+	.drop-down-menu-mobile {
+		.white-background {
+			justify-content: center;
+			height: 10vh;
+			.close-button {
+				display: none;
+			}
+			.form-floating {
+				.form-control {
+					width: 30vw;
+				}
+				.search-button {
+					position: absolute;
+					display: block;
+					left: 95%;
+					bottom: 35%;
+				}
+				.navbar-nav {
+					display: none;
+				}
+			}
+		}
+	}
+
+}

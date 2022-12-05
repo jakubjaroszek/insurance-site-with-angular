@@ -1,0 +1,42 @@
+@import "variables";
+@import "mixins";
+
+.service {
+	background-color: $main-color;
+	h2 {
+		text-align: center;
+		font-weight: bold;
+		font-size: 3rem;
+		color: $white-color;
+	}
+	.service-card-group {
+		.service-card {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: 2em 1em;
+			height: 250px;
+			background-color: $gray-color;
+			.fa-solid {
+				margin-bottom: 0.3em;
+				font-size: 6rem;
+				color: $main-color;
+			}
+			.service-card-body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				.service-card-title {
+					font-size: 1.7rem;
+					font-weight: bold;
+				}
+				.link {
+					margin-top: 2.5em;
+				}
+			}
+		}
+	}
+}
