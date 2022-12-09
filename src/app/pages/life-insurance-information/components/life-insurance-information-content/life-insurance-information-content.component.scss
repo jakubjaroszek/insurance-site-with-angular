@@ -1,0 +1,87 @@
+@import "variables";
+@import "mixins";
+
+.insurances-header {
+    .insurances-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h1 {
+        margin-top: 1em;
+        font-size: 3.5rem;
+        text-align: center;
+      }
+      p {
+        margin: 1em 1em;
+        font-size: 1.6rem;
+        text-align: center;
+      }
+      .service {
+        background-color: $white-color;
+        .service-card {
+          background-color: $white-color;
+        }
+      }
+
+      .end-button {
+        margin: 2em 0;
+        width: 95%;
+        @include standardButton;
+        color: $main-color;
+      }
+      .end-button:hover {
+        color: $white-color;
+        background-color: $main-color;
+      }
+    }
+  }
+
+  .service {
+    background-color: $main-color;
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 3rem;
+      color: $white-color;
+    }
+    .service-card-group {
+      .service-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 2em 1em;
+        height: 250px;
+        background-color: $gray-color;
+        .fa-solid {
+          margin-bottom: 0.3em;
+          font-size: 6rem;
+          color: $main-color;
+        }
+        .service-card-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          .service-card-title {
+            font-size: 1.7rem;
+            font-weight: bold;
+          }
+          .link {
+            margin-top: 2.5em;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 576px) {
+    .insurances-header  {
+    .insurances-content {
+        .end-button {
+          width: 200px;
+        }
+      }
+    }
+  }

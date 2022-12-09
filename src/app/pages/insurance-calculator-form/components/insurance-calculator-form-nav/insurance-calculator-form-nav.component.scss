@@ -1,0 +1,14 @@
+@import "variables";
+
+nav {
+	background-color: $secondary-color;
+	.navbar-brand {
+		font-size: 2rem;
+		font-weight: bold;
+		color: $main-color;
+	}
+
+}
+
+
+

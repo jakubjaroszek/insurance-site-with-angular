@@ -1,0 +1,45 @@
+@import "variables";
+@import "mixins";
+
+.insurance-calculator-form {
+    .insurance-calculator-form-content {
+      max-width: 600px;
+      .form-group {
+        min-width: 250px;
+        margin: 2em 1em;
+        label {
+          margin: 0.5em 0;
+          font-size: 1.8rem;
+        }
+        input,
+        .input-group-text {
+          font-size: 2rem;
+        }
+        h1 {
+          font-size: 3.5rem;
+        }
+        button {
+          width: 100%;
+          @include standardButton;
+          color: $main-color;
+        }
+        button:hover {
+          color: $white-color;
+          background-color: $main-color;
+        }
+      }
+    }
+    .date-of-birth,
+    .phone {
+      width: 250px;
+    }
+    .end-information {
+      margin: 6em 1em;
+    }
+  }
+
+  @media (min-width: 576px) {
+    .insurance-calculator-form {
+      height: 100vh;
+    }
+  }

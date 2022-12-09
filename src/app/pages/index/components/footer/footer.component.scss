@@ -84,3 +84,47 @@
 		}
 	}
 }
+
+@media (min-width: 768px) {
+    .footer {
+      .footer-boxes {
+        .social-media {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+
+  @media (min-width: 992px) {
+    .footer {
+      .footer-boxes {
+        flex-direction: row;
+
+        .footer-box {
+          margin: 0 0.8em;
+        }
+
+        .social-media {
+          margin-left: 4em;
+        }
+      }
+      .footer-box-second-list {
+        position: relative;
+        .footer-copy-right {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .footer {
+      .footer-boxes {
+        .footer-box {
+          width: 190px;
+        }
+      }
+    }
+  }

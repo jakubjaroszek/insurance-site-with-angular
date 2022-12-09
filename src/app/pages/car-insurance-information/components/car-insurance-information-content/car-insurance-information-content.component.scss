@@ -1,0 +1,57 @@
+@import "variables";
+@import "mixins";
+
+.insurance-car-more-info {
+  .insurance-car-more-info-content {
+    h1 {
+      margin-top: 1em;
+      font-size: 3.5rem;
+      text-align: center;
+    }
+    p {
+      margin: 2em 1em;
+      font-size: 1.6rem;
+      text-align: center;
+    }
+    .products {
+      .card-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .card {
+          margin: 2em 1em;
+
+          .card-title {
+            font-size: 2rem;
+            font-weight: bold;
+          }
+          .card-body {
+            position: relative;
+            height: 500px;
+            ul {
+              li {
+                font-size: 1.5rem;
+                margin: 1em 1em;
+              }
+            }
+            .card-text {
+              font-size: 1.5rem;
+              height: 100%;
+            }
+            .card-btn {
+              @include standardButton;
+              position: absolute;
+              bottom: 1em;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+            .card-btn:hover {
+              color: $white-color;
+              background-color: $main-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

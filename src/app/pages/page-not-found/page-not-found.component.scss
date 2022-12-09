@@ -1,0 +1,94 @@
+@import "variables";
+@import "mixins";
+
+
+#notfound {
+	position: relative;
+	height: 100vh;
+	.notfound {
+		position: absolute;
+		left: 50%;
+		top: 20%;
+		transform: translate(-50%, -50%);
+	}
+}
+.notfound {
+	max-width: 600px;
+	width: 100%;
+	text-align: center;
+	line-height: 1.4;
+  font-family: sans-serif;
+	.notfound-404 {
+		position: relative;
+		width: 180px;
+		height: 180px;
+		margin: 0px auto 50px;
+		div {
+			&:first-child {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				background: $secondary-color;
+				transform: rotate(45deg);
+				border: 5px dashed #000;
+				border-radius: 5px;
+				&:before {
+					content: '';
+					position: absolute;
+					top: -5px;
+					left: -5px;
+					bottom: -5px;
+					right: -5px;
+					box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.1) inset;
+					border-radius: 5px;
+				}
+			}
+		}
+		h1 {
+			color: $main-color;
+			font-weight: 700;
+			margin: 0;
+			font-size: 90px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+		}
+	}
+	h2 {
+		font-size: 33px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+    color: $main-color;
+	}
+	p {
+
+		font-size: 16px;
+		color: $main-color;
+		font-weight: 400;
+	}
+	a {
+		display: inline-block;
+    margin-top: 10px;
+		padding: 15px 25px;
+		background-color: $secondary-color;
+		border: none;
+		border-radius: 40px;
+		color: $main-color;
+		font-size: 14px;
+		font-weight: 700;
+		text-transform: uppercase;
+		text-decoration: none;
+		transition: 0.2s all;
+		&:hover {
+			background-color: $main-color;
+      color: $white-color;
+		}
+	}
+}

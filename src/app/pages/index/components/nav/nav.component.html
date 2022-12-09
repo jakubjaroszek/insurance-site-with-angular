@@ -8,10 +8,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="link animation-link" href="./insurances.html"> Ubzpieczenia</a>
-        <a class="link animation-link" href="./investments.html">Inwestycje</a>
-        <a class="link animation-link" href="./retiring.html">Emerytura</a>
-        <a class="link animation-link" href="./contact.html">Kontakt</a>
+        <a class="link animation-link" routerLink="/insurances" routerLinkActive="active-link"> Ubzpieczenia</a>
+        <a class="link animation-link" routerLink="/investments"  routerLinkActive="active-link">Inwestycje</a>
+        <a class="link animation-link" routerLink="/retirement"  routerLinkActive="active-link" >Emerytura</a>
+        <a class="link animation-link" routerLink="/contact"  routerLinkActive="active-link" >Kontakt</a>
         <a class="link nav-search" (click)="handleIconChange()" #navSearch href="#search" [ngClass]="flag ?'' :'nav-search-color-change'" (click)="flag = !flag">Szukaj <i class="fa-solid fa-magnifying-glass"></i></a>
       </div>
     </div>
@@ -25,11 +25,12 @@
       <label for="floatingInput"><i class="fa-solid fa-magnifying-glass"></i></label>
       <button type="submit" class="search-button">Szukaj</button>
       <div class="navbar-nav">
-        <a class="link animation-link" href="./insurances.html"> Ubzpieczenia</a>
-        <a class="link animation-link" href="./investments.html">Inwestycje</a>
-        <a class="link animation-link" href="./retiring.html">Emerytura</a>
-        <a class="link animation-link" href="./contact.html">Kontakt</a>
+        <a class="link animation-link" routerLink="/insurances"> Ubzpieczenia</a>
+        <a class="link animation-link" routerLink="/investments">Inwestycje</a>
+        <a class="link animation-link" routerLink="/retirement">Emerytura</a>
+        <a class="link animation-link" routerLink="/contact">Kontakt</a>
       </div>
     </div>
   </div>
 </div>
+
