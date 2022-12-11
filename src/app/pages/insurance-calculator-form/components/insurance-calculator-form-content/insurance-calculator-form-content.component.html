@@ -1,37 +1,47 @@
-<div class="insurance-calculator-form">
-    <div class="container">
-      <div class="insurance-calculator-form-content">
-        <form>
-          <div class="form-group">
-            <h1>Kalkulator ubezpieczenia</h1>
+<div class="insurance-calculator-form" >
+  <div class="container">
+    <div class="insurance-calculator-form-content">
+      <form (ngSubmit)="send()" [formGroup]="form">
+        <div class="form-group">
+          <h1>Kalkulator ubezpieczenia</h1>
+        </div>
+        <div class="form-group date-of-birth">
+          <label for="date-of-birth">Data urodzenia</label>
+          <input [(ngModel)]="model.dateOfBirth" name="date" [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }" formControlName="dateOfBirth"   type="date" class="form-control" id="date-of-birth" aria-describedby="dateOfBirth">
+          <div *ngIf="submitted && f['dateOfBirth'].errors" class="invalid-feedback">
+            <div *ngIf="f['dateOfBirth'].errors['required']">Data urodzenia musi zostać uzupełniona.</div>
           </div>
-          <div class="form-group date-of-birth">
-            <label for="date-of-birth">Data urodzenia</label>
-            <input type="text" class="form-control" id="date-of-birth" aria-describedby="dateOfBirth"
-              placeholder="dd/mm/rrrr">
-          </div>
-          <div class="form-group phone">
-            <label for="phone">Telefon</label>
-            <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">+48</div>
-              </div>
-              <input type="text" class="form-control" id="phone" placeholder="" aria-describedby="phone">
+        </div>
+        <div class="form-group phone">
+          <label for="phone">Telefon</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">+48</div>
+            </div>
+            <input [(ngModel)]="model.phoneNumber" name="phoneNumber" [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }" formControlName="phoneNumber"  type="text" class="form-control" id="phone" placeholder="" aria-describedby="phone">
+            <div *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
+              <div *ngIf="f['phoneNumber'].errors['required']">Pole musi zostać uzupełnione</div>
+              <div *ngIf="f['phoneNumber'].errors['pattern']">Numer telefonu jest nie poprawny</div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="">
-          </div>
-          <div class="form-group"> <button type="submit" class="">Przejdź dalej</button></div>
-        </form>
-        <div class="end-information">
-          <p>Informujemy, że Twoje dane osobowe będą przetwarzane przez Leaf-Insurance w celu przedstawienia Ci ofert
-            ubezpieczeniowych oraz zawarcia i realizacji umowy. Podawanie danych osobowych jest dobrowolne i
-            przysługuje Ci prawo dostępu od nich oraz ich poprawiania, usuwania oraz prawo zgłoszenia sprzeciwu wobec
-            przetwarzania danych w celach marketingowych. Szczegółowy opis sposobu przetwarzania danych osobowych
-            zamieszczony jest w polityce prywatności.</p>
         </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input [(ngModel)]="model.email" name="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email"  type="email" class="form-control" id="email" aria-describedby="email" placeholder="">
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Pole musi zostać uzupełnione</div>
+            <div *ngIf="f['email'].errors['email']"> Adres email jest nie poprawny</div>
+          </div>
+        </div>
+        <div class="form-group"> <button type="submit" class="">Przejdź dalej</button></div>
+      </form>
+      <div class="end-information">
+        <p>Informujemy, że Twoje dane osobowe będą przetwarzane przez Leaf-Insurance w celu przedstawienia Ci ofert
+          ubezpieczeniowych oraz zawarcia i realizacji umowy. Podawanie danych osobowych jest dobrowolne i
+          przysługuje Ci prawo dostępu od nich oraz ich poprawiania, usuwania oraz prawo zgłoszenia sprzeciwu wobec
+          przetwarzania danych w celach marketingowych. Szczegółowy opis sposobu przetwarzania danych osobowych
+          zamieszczony jest w polityce prywatności.</p>
       </div>
     </div>
   </div>
+</div>

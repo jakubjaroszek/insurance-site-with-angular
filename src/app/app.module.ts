@@ -32,6 +32,8 @@ import { LifeInsuranceInformationContentComponent } from './pages/life-insurance
 import { InsuranceCalculatorFormNavComponent } from './pages/insurance-calculator-form/components/insurance-calculator-form-nav/insurance-calculator-form-nav.component';
 import { InsuranceCalculatorFormContentComponent } from './pages/insurance-calculator-form/components/insurance-calculator-form-content/insurance-calculator-form-content.component';
 import { InsuranceCalculatorFormFooterComponent } from './pages/insurance-calculator-form/components/insurance-calculator-form-footer/insurance-calculator-form-footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -69,7 +71,10 @@ import { InsuranceCalculatorFormFooterComponent } from './pages/insurance-calcul
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
