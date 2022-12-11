@@ -31,10 +31,10 @@ export class HeaderImageComponent implements OnInit {
           .subscribe((result: BreakpointState) => {
             if (result.matches) {
               this.imageUrl =
-                'url(../../../../../assets/img/investments-hero-img-small.jpg)';
+                'url(/assets/img/investments-hero-img-small.jpg)';
             } else {
               this.imageUrl =
-                'url(../../../../../assets/img/investments-hero-img-big.jpg)';
+                'url(/assets/img/investments-hero-img-big.jpg)';
             }
           });
         break;
@@ -49,10 +49,10 @@ export class HeaderImageComponent implements OnInit {
           .subscribe((result: BreakpointState) => {
             if (result.matches) {
               this.imageUrl =
-                'url(../../../../../assets/img/retiring-hero-img-small.jpg)';
+                'url(/assets/img/retiring-hero-img-small.jpg)';
             } else {
               this.imageUrl =
-                'url(../../../../../assets/img/retiring-hero-img-big.jpg)';
+                'url(/assets/img/retiring-hero-img-big.jpg)';
             }
           });
         break;

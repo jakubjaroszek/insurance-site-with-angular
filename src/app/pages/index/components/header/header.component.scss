@@ -9,7 +9,7 @@ header {
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
-		background-image: url('../../../../../assets/img/hero-img-small.jpg');
+		background-image: url('/assets/img/hero-img-small.jpg');
 		z-index: 0;
 		.hero-shadow {
 			position: absolute;
@@ -94,7 +94,7 @@ header {
 @media (min-width: 992px) {
   header {
 		.hero-img {
-			background-image: url('../../../../../assets/img/hero-img-big.jpg');
+			background-image: url('/assets/img/hero-img-big.jpg');
 			.hero-content {
 				.hero-btn {
 					margin: 1.5em 1em;
