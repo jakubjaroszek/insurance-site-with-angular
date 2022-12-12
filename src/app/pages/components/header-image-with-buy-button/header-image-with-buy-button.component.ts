@@ -29,10 +29,10 @@ export class HeaderImageWithBuyButtonComponent implements OnInit {
           .subscribe((result: BreakpointState) => {
             if (result.matches) {
               this.imageUrl =
-                'url(/assets/img/car-hero-img-small.jpg)';
+                'url(assets/img/car-hero-img-small.jpg)';
             } else {
               this.imageUrl =
-                'url(/assets/img/car-hero-img-big.jpg';
+                'url(assets/img/car-hero-img-big.jpg';
             }
           });
         break;
@@ -45,10 +45,10 @@ export class HeaderImageWithBuyButtonComponent implements OnInit {
           .subscribe((result: BreakpointState) => {
             if (result.matches) {
               this.imageUrl =
-                'url(/assets/img/retiring-hero-img-small.jpg)';
+                'url(assets/img/retiring-hero-img-small.jpg)';
             } else {
               this.imageUrl =
-                'url(/assets/img/retiring-hero-img-big.jpg)';
+                'url(assets/img/retiring-hero-img-big.jpg)';
             }
           });
         break;
@@ -61,10 +61,10 @@ export class HeaderImageWithBuyButtonComponent implements OnInit {
             .subscribe((result: BreakpointState) => {
               if (result.matches) {
                 this.imageUrl =
-                  'url(/assets/img/tourist-hero-img-small.jpg)';
+                  'url(assets/img/tourist-hero-img-small.jpg)';
               } else {
                 this.imageUrl =
-                  'url(/assets/img/tourist-hero-img-big.jpg)';
+                  'url(assets/img/tourist-hero-img-big.jpg)';
               }
             });
           break;
@@ -77,10 +77,10 @@ export class HeaderImageWithBuyButtonComponent implements OnInit {
             .subscribe((result: BreakpointState) => {
               if (result.matches) {
                 this.imageUrl =
-                  'url(/assets/img/life-hero-img-small.jpg)';
+                  'url(assets/img/life-hero-img-small.jpg)';
               } else {
                 this.imageUrl =
-                  'url(/assets/img/life-hero-img-big.jpg)';
+                  'url(assets/img/life-hero-img-big.jpg)';
               }
             });
           break;
